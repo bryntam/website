@@ -1,4 +1,3 @@
-import React from 'react';
 import { Code, Briefcase, Zap } from 'lucide-react';
 import photo from '../../img/photo.jpg';
 
