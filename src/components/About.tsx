@@ -1,5 +1,7 @@
 import React from 'react';
 import { Code, Briefcase, Zap } from 'lucide-react';
+import photo from '../../img/photo.jpg';
+
 
 const About = () => {
   return (
@@ -9,7 +11,7 @@ const About = () => {
           <div className="w-full md:w-1/3">
             <div className="relative">
               <img
-                src="src/img/photo.jpg"
+                src={photo}
                 alt="Professional headshot"
                 className="rounded-full w-[300px] h-[300px] object-cover mx-auto shadow-xl"
               />
