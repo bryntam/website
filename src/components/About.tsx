@@ -21,10 +21,8 @@ const About = () => {
           <div className="w-full md:w-2/3 space-y-6">
             <h2 className="text-4xl font-bold text-gray-800">About Me</h2>
             <p className="text-lg text-gray-600">
-              I'm a passionate full-stack developer with expertise in modern web technologies.
-              My journey in software development has been driven by a desire to create
-              meaningful and impactful digital experiences. I specialize in React, Node.js,
-              and cloud technologies, always staying current with the latest industry trends.
+              I'm a final-year Management & IT student at the University of Toronto, exploring opportunities in front-end development and data analytics. With experience in React, Python, SQL, Java, C and Power BI,  I enjoy building intuitive applications and leveraging data to drive insights.
+
             </p>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
