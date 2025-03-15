@@ -56,7 +56,7 @@ const Contact = () => {
 
         <div className="flex justify-center gap-6 mb-12">
           <a
-            href="https://github.com/johndoe"
+            href="https://github.com/bryntam"
             target="_blank"
             rel="noopener noreferrer"
             className="p-3 bg-white rounded-full shadow-sm hover:shadow-md transition-all duration-300 text-gray-600 hover:text-gray-900"
@@ -65,7 +65,7 @@ const Contact = () => {
             <Github size={24} />
           </a>
           <a
-            href="https://linkedin.com/in/johndoe"
+            href="https://www.linkedin.com/in/bryancktam/"
             target="_blank"
             rel="noopener noreferrer"
             className="p-3 bg-white rounded-full shadow-sm hover:shadow-md transition-all duration-300 text-gray-600 hover:text-gray-900"
@@ -74,7 +74,7 @@ const Contact = () => {
             <Linkedin size={24} />
           </a>
           <a
-            href="https://youtube.com/@johndoe"
+            href="https://www.youtube.com/@bryan-tam"
             target="_blank"
             rel="noopener noreferrer"
             className="p-3 bg-white rounded-full shadow-sm hover:shadow-md transition-all duration-300 text-gray-600 hover:text-gray-900"
@@ -83,15 +83,15 @@ const Contact = () => {
             <Youtube size={24} />
           </a>
           <a
-            href="mailto:john.doe@gmail.com"
+            href="mailto:bryancktam@gmail.com"
             className="p-3 bg-white rounded-full shadow-sm hover:shadow-md transition-all duration-300 text-gray-600 hover:text-gray-900"
             aria-label="Email Contact"
           >
             <Mail size={24} />
           </a>
         </div>
-
-        <form onSubmit={handleSubmit} className="max-w-lg mx-auto space-y-6">
+      
+        {/* <form onSubmit={handleSubmit} className="max-w-lg mx-auto space-y-6">
           <div>
             <input
               type="text"
@@ -132,7 +132,8 @@ const Contact = () => {
           >
             {isSubmitting ? 'Sending...' : 'Send Message'}
           </button>
-        </form>
+        </form> */}
+        
       </div>
     </section>
   );
