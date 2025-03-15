@@ -9,7 +9,7 @@ const About = () => {
           <div className="w-full md:w-1/3">
             <div className="relative">
               <img
-                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?fit=crop&w=300&h=300"
+                src="src/img/photo.jpg"
                 alt="Professional headshot"
                 className="rounded-full w-[300px] h-[300px] object-cover mx-auto shadow-xl"
               />
