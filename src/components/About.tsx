@@ -1,5 +1,5 @@
 import { Code, Briefcase, Zap } from 'lucide-react';
-import photo from '../../img/photo.jpg';
+import photo from '../img/photo.jpg';
 
 
 const About = () => {
