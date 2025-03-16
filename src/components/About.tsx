@@ -28,21 +28,21 @@ const About = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
               <div className="p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow">
                 <Code className="w-8 h-8 text-accent mb-4" />
-                <h3 className="text-xl font-semibold mb-2">Full Stack Development</h3>
-                <p className="text-gray-600">Expertise in both frontend and backend technologies</p>
+                <h3 className="text-xl font-semibold mb-2">Front End Development</h3>
+                <p className="text-gray-600">Expertise in React and frontend technologies</p>
               </div>
+            <div className="p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow">
+              <Zap className="w-8 h-8 text-accent mb-4" />
+              <h3 className="text-xl font-semibold mb-2">Data Analytics</h3>
+              <p className="text-gray-600">Turning raw data into insights and visualizations</p>
+            </div>
+
+            <div className="p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow">
+              <Briefcase className="w-8 h-8 text-accent mb-4" />
+              <h3 className="text-xl font-semibold mb-2">Vice President</h3>
+              <p className="text-gray-600">at the Cantonese Speaking Club of UofT</p>
+            </div>
               
-              <div className="p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow">
-                <Briefcase className="w-8 h-8 text-accent mb-4" />
-                <h3 className="text-xl font-semibold mb-2">5+ Years Experience</h3>
-                <p className="text-gray-600">Working with enterprise-level applications</p>
-              </div>
-              
-              <div className="p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow">
-                <Zap className="w-8 h-8 text-accent mb-4" />
-                <h3 className="text-xl font-semibold mb-2">Problem Solver</h3>
-                <p className="text-gray-600">Turning complex problems into elegant solutions</p>
-              </div>
             </div>
           </div>
         </div>
