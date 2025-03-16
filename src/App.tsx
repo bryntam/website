@@ -31,7 +31,7 @@ function App() {
       <Header />
       <main className="pt-16">
         <About />
-        <Projects />
+        {/* <Projects /> */}
         <Contact />
       </main>
     </div>
