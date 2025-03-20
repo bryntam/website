@@ -73,7 +73,7 @@ const Contact = () => {
           >
             <Linkedin size={24} />
           </a>
-          <a
+          {/* <a
             href="https://www.youtube.com/@bryan-tam"
             target="_blank"
             rel="noopener noreferrer"
@@ -81,7 +81,7 @@ const Contact = () => {
             aria-label="YouTube Channel"
           >
             <Youtube size={24} />
-          </a>
+          </a> */}
           <a
             href="mailto:bryancktam@gmail.com"
             className="p-3 bg-white rounded-full shadow-sm hover:shadow-md transition-all duration-300 text-gray-600 hover:text-gray-900"
