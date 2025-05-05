@@ -8,8 +8,15 @@ const projects = [
     description: 'A modern IOS app to easily split expenses among friends, track payments, and settle up. Designed for students, roommates, and any shared spending.',
     image: splitbillsImg,
     technologies: ['React Native', 'Firebase', 'Expo Router'],
-    demoLink: 'https://www.splitbillsapp.com',
-    githubLink: '',
+    link: 'https://www.splitbillsapp.com',
+  },
+
+  {
+    title: 'Planetze: Carbon Footprint Android App',
+    description: 'Using agile development, we created a carbon footprint calculator app for Android.',
+    image: splitbillsImg,
+    technologies: ['Java', 'Firebase', 'Android Studio'],
+    link: 'https://github.com/kimjiy28/Planetze',
   },
 ];
 
@@ -51,22 +58,13 @@ const Projects = () => {
                 
                 <div className="flex gap-4 pt-4">
                   <a
-                    href={project.demoLink}
+                    href={project.link}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-2 text-accent hover:text-accent/80 transition-colors"
                   >
                     <ExternalLink size={18} />
-                    <span>Live Demo</span>
-                  </a>
-                  <a
-                    href={project.githubLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-gray-600 hover:text-gray-800 transition-colors"
-                  >
-                    <Github size={18} />
-                    <span>Source Code</span>
+                    <span>Link</span>
                   </a>
                 </div>
               </div>
