@@ -1,7 +1,7 @@
 import React from 'react';
 import { ExternalLink, Github } from 'lucide-react';
 import splitbillsImg from '../img/splitbills.jpeg';
-import planetzeImg from '../img/planetze.png';
+import planetzeImg from '../img/planetze.jpg';
 
 const projects = [
   {
