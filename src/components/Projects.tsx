@@ -1,6 +1,7 @@
 import React from 'react';
 import { ExternalLink, Github } from 'lucide-react';
 import splitbillsImg from '../img/splitbills.jpeg';
+import planetzeImg from '../img/planetze.png';
 
 const projects = [
   {
@@ -14,7 +15,7 @@ const projects = [
   {
     title: 'Planetze: Carbon Footprint Android App',
     description: 'Using agile development, we created a carbon footprint calculator app for Android.',
-    image: splitbillsImg,
+    image: planetzeImg,
     technologies: ['Java', 'Firebase', 'Android Studio'],
     link: 'https://github.com/kimjiy28/Planetze',
   },
