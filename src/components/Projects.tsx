@@ -5,7 +5,7 @@ const projects = [
   {
     title: 'SplitBills',
     description: 'A modern IOS app to easily split expenses among friends, track payments, and settle up. Designed for students, roommates, and any shared spending.',
-    image: 'img/splitbills.png',
+    image: '/img/splitbills.png',
     technologies: ['React Native', 'Firebase', 'Expo Router'],
     demoLink: 'https://www.splitbillsapp.com',
     githubLink: '',
