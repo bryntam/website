@@ -3,28 +3,12 @@ import { ExternalLink, Github } from 'lucide-react';
 
 const projects = [
   {
-    title: 'E-Commerce Platform',
-    description: 'A full-featured e-commerce platform built with React, Node.js, and MongoDB. Implements secure payment processing and real-time inventory management.',
-    image: 'https://images.unsplash.com/photo-1557821552-17105176677c?fit=crop&w=800&h=450',
-    technologies: ['React', 'Node.js', 'MongoDB', 'Stripe'],
-    demoLink: 'https://ecommerce-platform.johndoe.dev',
-    githubLink: 'https://github.com/johndoe/ecommerce-platform',
-  },
-  {
-    title: 'Task Management App',
-    description: 'A collaborative task management application with real-time updates, drag-and-drop interface, and team collaboration features.',
-    image: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?fit=crop&w=800&h=450',
-    technologies: ['React', 'Firebase', 'Material-UI', 'Redux'],
-    demoLink: 'https://taskmanager.johndoe.dev',
-    githubLink: 'https://github.com/johndoe/task-manager',
-  },
-  {
-    title: 'AI Content Generator',
-    description: 'An AI-powered content generation tool that helps create high-quality blog posts and social media content using GPT-3.',
-    image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?fit=crop&w=800&h=450',
-    technologies: ['Next.js', 'OpenAI API', 'TailwindCSS', 'TypeScript'],
-    demoLink: 'https://ai-content.johndoe.dev',
-    githubLink: 'https://github.com/johndoe/ai-content-generator',
+    title: 'SplitBills',
+    description: 'A modern IOS app to easily split expenses among friends, track payments, and settle up. Designed for students, roommates, and any shared spending.',
+    image: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?fit=crop&w=800&h=450',
+    technologies: ['React', 'TypeScript', 'Node.js', 'Express', 'MongoDB'],
+    demoLink: 'www.splitbillsapp.com',
+    github: null,
   },
 ];
 
