@@ -1,11 +1,12 @@
 import React from 'react';
 import { ExternalLink, Github } from 'lucide-react';
+import splitbillsImg from '../img/splitbills.jpeg';
 
 const projects = [
   {
     title: 'SplitBills',
     description: 'A modern IOS app to easily split expenses among friends, track payments, and settle up. Designed for students, roommates, and any shared spending.',
-    image: '../img/splitbills.jpeg',
+    image: splitbillsImg,
     technologies: ['React Native', 'Firebase', 'Expo Router'],
     demoLink: 'https://www.splitbillsapp.com',
     githubLink: '',
