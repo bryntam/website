@@ -2,8 +2,8 @@ import React from 'react';
 import { ExternalLink, Github } from 'lucide-react';
 import splitbillsImg from '../img/splitbills.jpeg';
 import planetzeImg from '../img/planetze.jpg';
-import hashproofImg from '../img/hashproof.png';
-import TDImg from '../img/TD.png';
+import hashproofImg from '../img/hashproof.jpg';
+import TDImg from '../img/TD.jpg';
 
 const projects = [
 
