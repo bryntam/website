@@ -2,14 +2,31 @@ import React from 'react';
 import { ExternalLink, Github } from 'lucide-react';
 import splitbillsImg from '../img/splitbills.jpeg';
 import planetzeImg from '../img/planetze.jpg';
+import hashproofImg from '../img/hashproof.png';
+import TDImg from '../img/TD.png';
 
 const projects = [
+
+  
   {
     title: 'SplitBills',
     description: 'A modern IOS app to easily split expenses among friends, track payments, and settle up. Designed for students, roommates, and any shared spending.',
     image: splitbillsImg,
     technologies: ['React Native', 'Firebase', 'Expo Router'],
     link: 'https://www.splitbillsapp.com',
+  },
+  {
+    title: 'Hashproof',
+    description: 'HashProof is a file verification and provenance system that leverages the Aptos blockchain to enable on-chain tracking of off-chain files. It provides a middleware architecture where file hashes are stored immutably on-chain, allowing for authenticity checks, version control, and digital ancestry tracing like a DNA tagging system for files.',
+    image: hashproofImg,
+    technologies: ['React', ' Node.js', 'Aptos'],
+    link: 'https://github.com/Jairodub/file_chain_tagging',
+  },
+  {
+    title: 'TD Innovation Consultant',
+    description: 'Analyzed TD + Roblox Partnership Innovation Needs, Conducted In-Depth Primary and Secondary Research and Analysis, Recommended Solutions, Accepted and Executed by the Leadership Team.',
+    img: TDImg,
+    technologies: [],
   },
 
   {
