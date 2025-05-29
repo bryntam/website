@@ -25,7 +25,7 @@ const projects = [
   {
     title: 'TD Innovation Consultant',
     description: 'Analyzed TD + Roblox Partnership Innovation Needs, Conducted In-Depth Primary and Secondary Research and Analysis, Recommended Solutions, Accepted and Executed by the Leadership Team.',
-    img: TDImg,
+    image: TDImg,
     technologies: [],
   },
 
