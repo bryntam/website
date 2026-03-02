@@ -1,4 +1,4 @@
-import { GithubIcon, LinkedinIcon, MailIcon, ArrowUpRightIcon } from './icons';
+import { GithubIcon, LinkedinIcon, MailIcon, ArrowUpRightIcon, XIcon } from './icons';
 import photo from '../img/photo.jpg';
 
 const Hero = () => {
@@ -15,16 +15,16 @@ const Hero = () => {
             </h1>
 
             <p className="text-xl text-stone-500 font-light leading-relaxed max-w-xs">
-              Building things for the internet.
+              I build and ship digital products.
             </p>
 
             <p className="text-sm text-stone-500 leading-relaxed max-w-sm">
-              Management & IT student at the University of Toronto.
-              I make apps, dig into data, and ship side projects.
+              Business Systems Analyst at Scotiabank.
+              I take digital products from idea to launch.
             </p>
 
             <div className="flex items-center gap-6 pt-1">
-              <a
+              {/* <a
                 href="https://github.com/bryntam"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -36,7 +36,7 @@ const Hero = () => {
                   size={11}
                   className="opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all"
                 />
-              </a>
+              </a> */}
 
               <a
                 href="https://www.linkedin.com/in/bryancktam/"
@@ -52,16 +52,19 @@ const Hero = () => {
                 />
               </a>
 
-              {/* Uncomment and add your Twitter/X handle when ready:
               <a
-                href="https://x.com/YOUR_HANDLE"
+                href="https://x.com/bryntamm"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group flex items-center gap-1.5 text-sm text-stone-400 hover:text-stone-900 transition-colors"
               >
+                <XIcon size={14} />
                 <span>Twitter</span>
+                <ArrowUpRightIcon
+                  size={11}
+                  className="opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all"
+                />
               </a>
-              */}
 
               <a
                 href="mailto:bryancktam@gmail.com"
