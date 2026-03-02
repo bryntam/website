@@ -3,20 +3,13 @@ export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
-      colors: {
-        primary: '#2d3748',
-        secondary: '#4a5568',
-        accent: '#667eea',
-      },
       fontFamily: {
+        display: ['Instrument Serif', 'Georgia', 'serif'],
         sans: [
-          'Inter',
-          'system-ui',
           '-apple-system',
           'BlinkMacSystemFont',
-          'Segoe UI',
-          'Roboto',
-          'Helvetica Neue',
+          '"Segoe UI"',
+          '"Helvetica Neue"',
           'Arial',
           'sans-serif',
         ],

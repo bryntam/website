@@ -1,39 +1,45 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import Header from './components/Header';
-import About from './components/About';
-import Projects from './components/Projects';
-import Contact from './components/Contact';
+import Hero from './components/Hero';
+import Built from './components/Built';
+import Experience from './components/Experience';
+import Education from './components/Education';
+import Highlights from './components/Highlights';
+import Photography from './components/Photography';
+import Footer from './components/Footer';
 
 function App() {
   useEffect(() => {
-    // Intersection Observer for fade-in animations
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add('fade-in');
+            entry.target.classList.add('visible');
           }
         });
       },
-      { threshold: 0.1 }
+      { threshold: 0.05 }
     );
 
-    // Observe all sections
-    document.querySelectorAll('section').forEach((section) => {
-      observer.observe(section);
+    document.querySelectorAll('.fade-section').forEach((el) => {
+      observer.observe(el);
     });
 
     return () => observer.disconnect();
   }, []);
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-[#fafafa]">
       <Header />
-      <main className="pt-16">
-        <About />
-        <Projects />
-        <Contact />
+      <main>
+        <Hero />
+        <Built />
+        <Experience />
+        <Education />
+        <Highlights />
+        <Photography />
       </main>
+      <Footer />
     </div>
   );
 }
