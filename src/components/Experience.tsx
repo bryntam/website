@@ -2,23 +2,28 @@ interface Role {
   org: string;
   title: string;
   period: string;
-  description: string;
 }
 
 const roles: Role[] = [
   {
-    org: 'TD Bank',
-    title: 'Innovation Consultant',
-    period: '2024',
-    description:
-      'Analyzed the TD × Roblox partnership, identifying innovation opportunities through primary and secondary research. Developed strategic recommendations that were accepted and executed by the leadership team.',
+    org: 'Scotiabank',
+    title: 'Business Systems Analyst',
+    period: '2025 – Present',
   },
   {
     org: 'Cantonese Speaking Club of UofT',
     title: 'Vice President',
-    period: '2023 – Present',
-    description:
-      "Leading one of UofT's active cultural organizations — organizing events, managing a team, and fostering community among Cantonese-speaking students on campus.",
+    period: '2024 – 2025',
+  },
+  {
+    org: 'AIA',
+    title: 'Data Analyst Intern',
+    period: '2023',
+  },
+  {
+    org: 'Hong Kong Trade Development Council',
+    title: 'Event Management Intern',
+    period: '2022',
   },
 ];
 
@@ -42,8 +47,7 @@ const Experience = () => {
               </div>
               <div>
                 <h3 className="text-stone-900 font-medium text-sm mb-0.5">{role.title}</h3>
-                <p className="text-sm text-stone-400 mb-3">{role.org}</p>
-                <p className="text-sm text-stone-600 leading-relaxed max-w-lg">{role.description}</p>
+                <p className="text-sm text-stone-400">{role.org}</p>
               </div>
             </div>
           ))}

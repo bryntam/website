@@ -7,12 +7,12 @@ const Highlights = () => {
         <h2 className="font-display text-4xl text-stone-900 mb-2">Highlights</h2>
         <p className="text-sm text-stone-400 mb-10">A few things I'm proud of.</p>
 
-        <div className="rounded-2xl overflow-hidden border border-stone-100 mx-auto w-fit">
+        <div className="rounded-2xl overflow-hidden border border-stone-100 mx-auto w-full max-w-[642px]">
           {/* Let the image define its own natural width */}
           <img
             src={boxingImg}
             alt="Bryan Tam boxing"
-            className="block max-h-[640px] w-auto"
+            className="w-full h-auto"
           />
 
           {/* Caption */}

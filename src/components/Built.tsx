@@ -18,24 +18,11 @@ const projects: Project[] = [
   },
   {
     num: '02',
-    name: 'Hashproof',
-    description: 'File verification and provenance system on the Aptos blockchain — a DNA tagging system for files.',
-    tags: ['React', 'Node.js', 'Aptos'],
-    link: 'https://github.com/Jairodub/file_chain_tagging',
-  },
-  {
-    num: '03',
-    name: 'Planetze',
-    description: 'Carbon footprint calculator for Android, built using agile methodology.',
-    tags: ['Java', 'Firebase', 'Android Studio'],
-    link: 'https://github.com/kimjiy28/Planetze',
-  },
-  {
-    num: '04',
-    name: 'TD Innovation',
-    description: 'Analyzed the TD × Roblox partnership. Delivered strategic recommendations accepted and executed by the leadership team.',
-    tags: ['Strategy', 'Research'],
-  },
+    name: 'playmahjong.app',
+    description: 'Created a mordern majong site to play mahjong.',
+    tags: ['React', 'Node.js'],
+    link: 'https://www.playmahjong.app',
+  }
 ];
 
 const ProjectRow = ({ project }: { project: Project }) => {

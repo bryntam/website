@@ -79,7 +79,7 @@ const Hero = () => {
               <img
                 src={photo}
                 alt="Bryan Tam"
-                className="w-full h-full rounded-full object-cover object-top"
+                className="w-full h-full rounded-full object-cover" style={{ objectPosition: '50% 20%' }}
               />
               <div className="absolute inset-0 rounded-full ring-1 ring-stone-200 ring-offset-2 ring-offset-[#fafafa]" />
             </div>
