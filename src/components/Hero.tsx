@@ -20,7 +20,7 @@ const Hero = () => {
 
             <p className="text-sm text-stone-500 leading-relaxed max-w-sm">
               Business Systems Analyst at Scotiabank.
-              I take digital products from idea to launch.
+              I help build things from start to finish.
             </p>
 
             <div className="flex items-center gap-6 pt-1">
@@ -52,7 +52,7 @@ const Hero = () => {
                 />
               </a>
 
-              <a
+              {/* <a
                 href="https://x.com/bryntamm"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -64,7 +64,7 @@ const Hero = () => {
                   size={11}
                   className="opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all"
                 />
-              </a>
+              </a> */}
 
               <a
                 href="mailto:bryancktam@gmail.com"
