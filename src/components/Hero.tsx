@@ -3,8 +3,8 @@ import photo from '../img/photo.jpg';
 
 const Hero = () => {
   return (
-    <section id="about" className="min-h-screen flex items-center pt-14">
-      <div className="max-w-5xl mx-auto px-6 w-full py-24">
+    <section id="about" className="min-h-screen flex items-start md:items-center pt-14">
+      <div className="max-w-5xl mx-auto px-6 w-full pt-6 pb-24 md:py-24">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-16">
 
           {/* Text */}

@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { GearIcon } from './icons';
 
 const NAV_ITEMS = ['Built', 'Experience', 'Education', 'Athletics', 'Photography'];
 
@@ -49,9 +50,9 @@ const Header = () => {
         {/* Mobile toggle */}
         <button
           onClick={() => setMenuOpen(!menuOpen)}
-          className="md:hidden text-sm text-stone-400 hover:text-stone-900 transition-colors"
+          className="md:hidden text-stone-400 hover:text-stone-900 transition-colors"
         >
-          {menuOpen ? 'close' : 'menu'}
+          <GearIcon size={18} />
         </button>
       </div>
 
