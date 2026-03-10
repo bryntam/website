@@ -1,18 +1,18 @@
 import { GithubIcon, LinkedinIcon, MailIcon, ArrowUpRightIcon, XIcon } from './icons';
 import photo from '../img/photo.jpg';
-import heroBg from '../img/photography/DSCF0500 (1).JPG';
 
 const Hero = () => {
   return (
     <section
       id="about"
-      className="relative min-h-screen flex items-start md:items-center pt-14 overflow-hidden"
+      className="relative min-h-screen flex items-start md:items-center pt-14 overflow-hidden bg-black"
     >
       {/* Background photo */}
       <img
-        src={heroBg}
+        src="/hero-bg.jpg"
         alt=""
         aria-hidden="true"
+        fetchPriority="high"
         className="absolute inset-0 w-full h-full object-cover z-0"
       />
 
