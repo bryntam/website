@@ -20,7 +20,7 @@ const projects: Project[] = [
     num: '02',
     name: 'playmahjong.app',
     description: 'Created a mordern majong site to play mahjong.',
-    tags: ['React', 'Node.js'],
+    tags: ['React', 'Python'],
     link: 'https://www.playmahjong.app',
   }
 ];
