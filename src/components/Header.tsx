@@ -26,21 +26,18 @@ const Header = () => {
           : 'bg-transparent'
       }`}
     >
-      <div className="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
-        <button
-          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          className="text-sm font-medium text-stone-900 hover:text-stone-500 transition-colors"
-        >
-          Bryan Tam
-        </button>
-
+      <div className="max-w-5xl mx-auto px-6 h-14 flex items-center justify-center">
         {/* Desktop nav */}
         <nav className="hidden md:flex items-center gap-8">
           {NAV_ITEMS.map((item) => (
             <button
               key={item}
               onClick={() => scrollTo(item)}
-              className="text-sm text-stone-400 hover:text-stone-900 transition-colors"
+              className={`text-sm font-semibold transition-colors ${
+                scrolled
+                  ? 'text-stone-400 hover:text-stone-900'
+                  : 'text-white hover:text-white/70'
+              }`}
             >
               {item}
             </button>
@@ -50,7 +47,11 @@ const Header = () => {
         {/* Mobile toggle */}
         <button
           onClick={() => setMenuOpen(!menuOpen)}
-          className="md:hidden text-stone-400 hover:text-stone-900 transition-colors"
+          className={`md:hidden transition-colors ${
+            scrolled
+              ? 'text-stone-400 hover:text-stone-900'
+              : 'text-white hover:text-white/70'
+          }`}
         >
           <GearIcon size={18} />
         </button>
