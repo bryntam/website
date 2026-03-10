@@ -5,6 +5,7 @@ export default {
     extend: {
       fontFamily: {
         display: ['Instrument Serif', 'Georgia', 'serif'],
+        hero: ['"Space Grotesk"', 'sans-serif'],
         sans: [
           '-apple-system',
           'BlinkMacSystemFont',
