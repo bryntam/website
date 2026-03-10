@@ -58,12 +58,18 @@ const Header = () => {
       </div>
 
       {menuOpen && (
-        <div className="md:hidden bg-[#fafafa] border-b border-stone-100 px-6 py-4 flex flex-col gap-4">
+        <div className={`md:hidden px-6 py-4 flex flex-col gap-4 items-center ${
+          scrolled ? 'bg-[#fafafa]/95 border-b border-stone-100' : ''
+        }`}>
           {NAV_ITEMS.map((item) => (
             <button
               key={item}
               onClick={() => scrollTo(item)}
-              className="text-sm text-stone-600 text-left hover:text-stone-900 transition-colors"
+              className={`text-sm font-semibold transition-colors ${
+                scrolled
+                  ? 'text-stone-600 hover:text-stone-900'
+                  : 'text-white hover:text-white/70'
+              }`}
             >
               {item}
             </button>
