@@ -41,12 +41,11 @@ const Hero = () => {
           </h1>
 
           <p className="text-xl text-white font-semibold leading-relaxed max-w-xs">
-            I build and ship digital products.
+            I build and ship digital products from start to finish.
           </p>
 
           <p className="text-sm text-white font-semibold leading-relaxed max-w-sm">
             Business Systems Analyst at Scotiabank.
-            I help build things from start to finish.
           </p>
 
           <div className="flex items-center gap-6 pt-1">
