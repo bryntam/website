@@ -1,4 +1,5 @@
 import { GithubIcon, LinkedinIcon, MailIcon, ArrowUpRightIcon, XIcon } from './icons';
+import photo from '../img/photo.jpg';
 import heroBg from '../img/photography/DSCF0500 (1).JPG';
 
 const Hero = () => {
@@ -23,6 +24,17 @@ const Hero = () => {
 
       <div className="relative z-10 max-w-5xl mx-auto px-6 w-full pt-6 pb-24 md:py-24">
         <div className="flex-1 max-w-md space-y-7">
+
+          {/* Photo — above name */}
+          <div className="w-40 h-40 md:w-56 md:h-56 rounded-full overflow-hidden">
+            <img
+              src={photo}
+              alt="Bryan Tam"
+              className="w-full h-full object-cover"
+              style={{ objectPosition: '50% 20%' }}
+            />
+          </div>
+
           <h1 className="font-display text-[clamp(4rem,10vw,7rem)] text-white leading-[0.9] tracking-tight">
             Bryan<br />
             <span className="italic text-white">Tam</span>
