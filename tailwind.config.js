@@ -4,9 +4,10 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        display: ['Instrument Serif', 'Georgia', 'serif'],
-        hero: ['"Space Grotesk"', 'sans-serif'],
+        display: ['Schibsted Grotesk', 'Helvetica Neue', 'Arial', 'sans-serif'],
+        hero: ['Schibsted Grotesk', 'Helvetica Neue', 'Arial', 'sans-serif'],
         sans: [
+          'Schibsted Grotesk',
           '-apple-system',
           'BlinkMacSystemFont',
           '"Segoe UI"',

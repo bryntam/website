@@ -1,5 +1,4 @@
-import { useState, useEffect } from 'react';
-import { GearIcon } from './icons';
+import { useEffect, useState } from 'react';
 
 const NAV_ITEMS = ['Built', 'Experience', 'Education', 'Athletics', 'Photography'];
 
@@ -20,23 +19,22 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed left-0 right-0 top-0 z-50 transition-all duration-300 ${
         scrolled
-          ? 'bg-[#fafafa]/95 backdrop-blur-sm border-b border-stone-100'
+          ? 'border-b border-stone-200 bg-[#fafafa]/95 backdrop-blur-sm'
           : 'bg-transparent'
       }`}
     >
-      <div className="max-w-5xl mx-auto px-6 h-14 flex items-center justify-center">
-        {/* Desktop nav */}
-        <nav className="hidden md:flex items-center gap-8">
+      <div className="mx-auto flex h-16 max-w-6xl items-center justify-end px-6 sm:px-8 md:h-20">
+        <nav className="hidden items-center gap-7 md:flex" aria-label="Main navigation">
           {NAV_ITEMS.map((item) => (
             <button
               key={item}
               onClick={() => scrollTo(item)}
-              className={`text-sm font-semibold transition-colors ${
+              className={`text-[13px] font-medium tracking-[-0.01em] transition-colors ${
                 scrolled
-                  ? 'text-stone-400 hover:text-stone-900'
-                  : 'text-white hover:text-white/70'
+                  ? 'text-stone-500 hover:text-stone-950'
+                  : 'text-white/70 hover:text-white'
               }`}
             >
               {item}
@@ -44,37 +42,44 @@ const Header = () => {
           ))}
         </nav>
 
-        {/* Mobile toggle */}
         <button
           onClick={() => setMenuOpen(!menuOpen)}
-          className={`md:hidden transition-colors ${
+          className={`text-[13px] font-medium transition-colors md:hidden ${
             scrolled
-              ? 'text-stone-400 hover:text-stone-900'
-              : 'text-white hover:text-white/70'
+              ? 'text-stone-600 hover:text-stone-950'
+              : 'text-white/75 hover:text-white'
           }`}
+          aria-expanded={menuOpen}
+          aria-controls="mobile-navigation"
         >
-          <GearIcon size={18} />
+          {menuOpen ? 'Close' : 'Menu'}
         </button>
       </div>
 
       {menuOpen && (
-        <div className={`md:hidden px-6 py-4 flex flex-col gap-4 items-center ${
-          scrolled ? 'bg-[#fafafa]/95 border-b border-stone-100' : ''
-        }`}>
+        <nav
+          id="mobile-navigation"
+          aria-label="Mobile navigation"
+          className={`mx-5 flex flex-col border-t px-5 py-4 md:hidden ${
+            scrolled
+              ? 'border-stone-200 bg-[#fafafa]/98'
+              : 'border-white/20 bg-[#0a0c0b]/95 backdrop-blur-md'
+          }`}
+        >
           {NAV_ITEMS.map((item) => (
             <button
               key={item}
               onClick={() => scrollTo(item)}
-              className={`text-sm font-semibold transition-colors ${
+              className={`border-b py-3 text-left text-sm font-medium transition-colors last:border-0 ${
                 scrolled
-                  ? 'text-stone-600 hover:text-stone-900'
-                  : 'text-white hover:text-white/70'
+                  ? 'border-stone-200 text-stone-600 hover:text-stone-950'
+                  : 'border-white/15 text-white/75 hover:text-white'
               }`}
             >
               {item}
             </button>
           ))}
-        </div>
+        </nav>
       )}
     </header>
   );
