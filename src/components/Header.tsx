@@ -21,7 +21,7 @@ const Header = () => {
     <header
       className={`fixed left-0 right-0 top-0 z-50 transition-all duration-300 ${
         scrolled
-          ? 'border-b border-stone-200 bg-[#fafafa]/95 backdrop-blur-sm'
+          ? 'border-b border-stone-300/70 bg-[#f4f3ef]/95 backdrop-blur-sm'
           : 'bg-transparent'
       }`}
     >
@@ -62,7 +62,7 @@ const Header = () => {
           aria-label="Mobile navigation"
           className={`mx-5 flex flex-col border-t px-5 py-4 md:hidden ${
             scrolled
-              ? 'border-stone-200 bg-[#fafafa]/98'
+              ? 'border-stone-200 bg-[#f4f3ef]/98'
               : 'border-white/20 bg-[#0a0c0b]/95 backdrop-blur-md'
           }`}
         >

@@ -29,7 +29,7 @@ function App() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#fafafa]">
+    <div className="min-h-screen bg-[#f4f3ef]">
       <Header />
       <main>
         <Hero />

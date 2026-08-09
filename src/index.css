@@ -8,7 +8,7 @@
   }
 
   body {
-    @apply bg-[#fafafa] text-stone-900 antialiased;
+    @apply bg-[#f4f3ef] text-stone-900 antialiased;
   }
 }
 

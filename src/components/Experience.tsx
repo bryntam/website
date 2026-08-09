@@ -1,56 +1,118 @@
-interface Role {
+import scotiabankLogo from '../img/logos/scotiabank.svg';
+import aiaLogo from '../img/logos/aia.svg';
+import hktdcLogo from '../img/logos/hktdc.png';
+import noveltyLogo from '../img/logos/novelty-cantonese-club.jpg';
+
+interface ProfessionalRole {
   org: string;
   title: string;
   period: string;
+  logo: string;
+  logoAlt: string;
+  logoClassName: string;
 }
 
-const roles: Role[] = [
+const professionalRoles: ProfessionalRole[] = [
   {
     org: 'Scotiabank',
     title: 'Business Systems Analyst',
     period: '2025 – Present',
-  },
-  {
-    org: 'Cantonese Speaking Club of UofT',
-    title: 'Vice President',
-    period: '2024 – 2025',
+    logo: scotiabankLogo,
+    logoAlt: 'Scotiabank',
+    logoClassName: 'h-5 w-auto max-w-[112px] md:h-6 md:max-w-[145px]',
   },
   {
     org: 'AIA',
     title: 'Data Analyst Intern',
     period: '2023',
+    logo: aiaLogo,
+    logoAlt: 'AIA',
+    logoClassName: 'h-9 w-auto max-w-[110px]',
   },
   {
     org: 'Hong Kong Trade Development Council',
     title: 'Event Management Intern',
     period: '2022',
+    logo: hktdcLogo,
+    logoAlt: 'Hong Kong Trade Development Council',
+    logoClassName: 'h-16 w-auto mix-blend-multiply md:h-20',
   },
 ];
 
 const Experience = () => {
   return (
-    <section id="experience" className="py-24 fade-section">
-      <div className="max-w-5xl mx-auto px-6">
-        <h2 className="font-display text-4xl text-stone-900 mb-2">Experience</h2>
-        <p className="text-sm text-stone-400 mb-12">Where I've spent my time.</p>
+    <section id="experience" className="fade-section bg-[#f4f3ef] py-28 md:py-36">
+      <div className="mx-auto max-w-6xl px-6 sm:px-8">
+        <div className="pb-14 md:pb-20">
+          <p className="mb-5 text-[11px] uppercase tracking-[0.18em] text-stone-500">
+            02 /
+          </p>
+          <h2 className="font-display text-[clamp(3.7rem,8vw,7rem)] font-medium leading-[0.84] tracking-[-0.07em] text-[#0b0d0c]">
+            Experience.
+          </h2>
+        </div>
 
-        <div className="space-y-12">
-          {roles.map((role, i) => (
-            <div
-              key={role.org}
-              className={`grid grid-cols-1 md:grid-cols-[180px_1fr] gap-3 md:gap-12 ${
-                i < roles.length - 1 ? 'pb-12 border-b border-stone-100' : ''
-              }`}
-            >
-              <div className="pt-0.5">
-                <p className="text-xs text-orange-400 tabular-nums">{role.period}</p>
+        <div>
+          <p className="border-t border-[#d7d6d1] py-5 text-[10px] uppercase tracking-[0.18em] text-stone-500">
+            Professional
+          </p>
+
+          <div className="border-y border-[#d7d6d1]">
+            {professionalRoles.map((role, index) => (
+              <article
+                key={role.org}
+                className={`grid grid-cols-[112px_1fr] items-center gap-x-5 gap-y-3 py-8 md:grid-cols-[190px_1fr_auto] md:gap-x-12 md:py-10 ${
+                  index < professionalRoles.length - 1 ? 'border-b border-[#d7d6d1]' : ''
+                }`}
+              >
+                <div className="flex h-20 items-center">
+                  <img
+                    src={role.logo}
+                    alt={role.logoAlt}
+                    className={role.logoClassName}
+                  />
+                </div>
+
+                <div>
+                  <h3 className="text-base font-medium tracking-[-0.015em] text-[#0b0d0c]">
+                    {role.title}
+                  </h3>
+                  <p className="mt-1 text-sm text-stone-500">{role.org}</p>
+                </div>
+
+                <p className="col-start-2 text-xs tabular-nums text-stone-500 md:col-auto md:justify-self-end">
+                  {role.period}
+                </p>
+              </article>
+            ))}
+          </div>
+
+          <div className="mt-16 md:mt-20">
+            <p className="border-t border-[#d7d6d1] py-5 text-[10px] uppercase tracking-[0.18em] text-stone-500">
+              Volunteer
+            </p>
+
+            <div className="grid grid-cols-[112px_1fr] items-center gap-x-5 gap-y-3 border-y border-[#d7d6d1] py-9 md:grid-cols-[190px_1fr_auto] md:gap-x-12 md:py-11">
+              <div className="flex h-20 items-center overflow-hidden">
+                <img
+                  src={noveltyLogo}
+                  alt="Novelty Cantonese Students' Association"
+                  className="w-full max-w-[92px] mix-blend-multiply md:max-w-[125px]"
+                />
               </div>
               <div>
-                <h3 className="text-stone-900 font-medium text-sm mb-0.5">{role.title}</h3>
-                <p className="text-sm text-stone-400">{role.org}</p>
+                <h3 className="text-base font-medium tracking-[-0.015em] text-[#0b0d0c]">
+                  Vice President
+                </h3>
+                <p className="mt-1 text-sm text-stone-500">
+                  Novelty Cantonese Students’ Association
+                </p>
               </div>
+              <p className="col-start-2 text-xs tabular-nums text-stone-500 md:col-auto md:justify-self-end">
+                2024 – 2025
+              </p>
             </div>
-          ))}
+          </div>
         </div>
       </div>
     </section>
