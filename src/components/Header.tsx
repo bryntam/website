@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-const NAV_ITEMS = ['Built', 'Experience', 'Education', 'Athletics', 'Photography'];
+const NAV_ITEMS = ['Experience', 'Projects', 'Education', 'Athletics', 'Photography'];
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);

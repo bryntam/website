@@ -45,7 +45,7 @@ const Experience = () => {
       <div className="mx-auto max-w-6xl px-6 sm:px-8">
         <div className="pb-14 md:pb-20">
           <p className="mb-5 text-[11px] uppercase tracking-[0.18em] text-stone-500">
-            02 /
+            01 /
           </p>
           <h2 className="font-display text-[clamp(3.7rem,8vw,7rem)] font-medium leading-[0.84] tracking-[-0.07em] text-[#0b0d0c]">
             Experience.

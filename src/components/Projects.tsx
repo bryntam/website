@@ -18,7 +18,7 @@ const projects: Project[] = [
     description:
       'An iOS app that makes shared expenses easier to track, settle, and understand.',
     stack: 'React Native · Firebase · Expo Router',
-    link: 'https://www.splitbillsapp.com',
+    link: 'https://apps.apple.com/us/app/splitbills-settle-up/id6745431748',
     visual: 'splitbills',
   },
   {
@@ -93,17 +93,17 @@ const ProjectFeature = ({ project }: { project: Project }) => (
   </article>
 );
 
-const Built = () => {
+const Projects = () => {
   return (
-    <section id="built" className="fade-section bg-[#f4f3ef] py-28 md:py-36">
+    <section id="projects" className="fade-section bg-[#f4f3ef] py-28 md:py-36">
       <div className="mx-auto max-w-6xl px-6 sm:px-8">
         <div className="grid gap-8 pb-16 md:grid-cols-[0.65fr_1.35fr] md:items-end md:pb-20">
           <div>
             <p className="mb-5 text-[11px] uppercase tracking-[0.18em] text-stone-500">
-              01 /
+              02 /
             </p>
             <h2 className="font-display text-[clamp(4rem,9vw,7.5rem)] font-medium leading-[0.82] tracking-[-0.07em] text-[#0b0d0c]">
-              Built.
+              Projects.
             </h2>
           </div>
           <p className="max-w-xl text-xl leading-snug tracking-[-0.025em] text-stone-600 md:justify-self-end md:text-2xl">
@@ -121,4 +121,4 @@ const Built = () => {
   );
 };
 
-export default Built;
+export default Projects;

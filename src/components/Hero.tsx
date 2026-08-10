@@ -75,7 +75,7 @@ const Hero = () => {
 
         <div className="flex justify-end text-xs leading-relaxed text-white/75">
           <a
-            href="#built"
+            href="#experience"
             className="text-right transition-colors hover:text-white"
           >
             Scroll to explore ↓

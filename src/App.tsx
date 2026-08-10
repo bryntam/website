@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
-import Built from './components/Built';
 import Experience from './components/Experience';
+import Projects from './components/Projects';
 import Education from './components/Education';
 import Highlights from './components/Highlights';
 import Photography from './components/Photography';
@@ -33,8 +33,8 @@ function App() {
       <Header />
       <main>
         <Hero />
-        <Built />
         <Experience />
+        <Projects />
         <Education />
         <Highlights />
         <Photography />
