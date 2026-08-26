@@ -1,11 +1,65 @@
-import photo from '../img/photo.jpg';
+import { useLayoutEffect, useRef } from 'react';
+import photo from '../img/photo.webp';
 import { LinkedinIcon, MailIcon } from './icons';
 
 const Hero = () => {
+  const heroRef = useRef<HTMLElement>(null);
+
+  useLayoutEffect(() => {
+    const hero = heroRef.current;
+    if (!hero) return;
+
+    const mobileHeroQuery = window.matchMedia(
+      '(max-width: 767px), (hover: none) and (pointer: coarse)'
+    );
+    let previousWidth = window.innerWidth;
+    let frameId: number | null = null;
+
+    const lockHeroHeight = () => {
+      frameId = null;
+      hero.style.removeProperty('--hero-height');
+
+      if (mobileHeroQuery.matches) {
+        const initialHeight = Math.ceil(hero.getBoundingClientRect().height);
+        hero.style.setProperty('--hero-height', `${initialHeight}px`);
+      }
+    };
+
+    const handleResize = () => {
+      const nextWidth = window.innerWidth;
+
+      // Mobile browser chrome changes only the viewport height while scrolling.
+      // Keep the original hero crop unless the layout width actually changes.
+      if (Math.abs(nextWidth - previousWidth) < 2) return;
+
+      previousWidth = nextWidth;
+
+      if (frameId !== null) {
+        window.cancelAnimationFrame(frameId);
+      }
+
+      frameId = window.requestAnimationFrame(lockHeroHeight);
+    };
+
+    lockHeroHeight();
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+
+      if (frameId !== null) {
+        window.cancelAnimationFrame(frameId);
+      }
+
+      hero.style.removeProperty('--hero-height');
+    };
+  }, []);
+
   return (
     <section
+      ref={heroRef}
       id="about"
-      className="relative min-h-[100svh] overflow-hidden bg-[#080a09] text-white"
+      className="hero-viewport relative overflow-hidden bg-[#080a09] text-white"
     >
       <img
         src="/hero-bg.jpg"
@@ -13,19 +67,19 @@ const Hero = () => {
         aria-hidden="true"
         decoding="async"
         fetchPriority="high"
-        className="absolute inset-0 h-full w-full object-cover object-[57%_center] md:object-center"
+        className="hero-backdrop absolute inset-x-0 top-0 w-full max-w-none object-cover object-[57%_center] md:object-center"
       />
 
       <div
         aria-hidden="true"
-        className="absolute inset-0 bg-[linear-gradient(90deg,rgba(5,7,6,0.9)_0%,rgba(5,7,6,0.72)_43%,rgba(5,7,6,0.18)_82%)]"
+        className="hero-backdrop absolute inset-x-0 top-0 bg-[linear-gradient(90deg,rgba(5,7,6,0.9)_0%,rgba(5,7,6,0.72)_43%,rgba(5,7,6,0.18)_82%)]"
       />
       <div
         aria-hidden="true"
-        className="absolute inset-0 bg-[linear-gradient(180deg,rgba(5,7,6,0.18)_0%,transparent_48%,rgba(5,7,6,0.58)_100%)]"
+        className="hero-backdrop absolute inset-x-0 top-0 bg-[linear-gradient(180deg,rgba(5,7,6,0.18)_0%,transparent_48%,rgba(5,7,6,0.58)_100%)]"
       />
 
-      <div className="relative z-10 mx-auto flex min-h-[100svh] w-full max-w-6xl flex-col px-6 pb-7 pt-20 sm:px-8 md:pb-8 md:pt-24">
+      <div className="hero-viewport relative z-10 mx-auto flex w-full max-w-6xl flex-col px-6 pb-7 pt-20 sm:px-8 md:pb-8 md:pt-24">
         <div className="flex flex-1 items-center py-10 md:py-14">
           <div className="max-w-[50rem]">
             <div className="flex items-center gap-5 sm:gap-7 md:gap-8">
@@ -33,7 +87,9 @@ const Hero = () => {
                 <img
                   src={photo}
                   alt="Bryan Tam"
-                  decoding="async"
+                  decoding="sync"
+                  loading="eager"
+                  fetchPriority="high"
                   className="h-full w-full scale-110 object-cover"
                   style={{ objectPosition: '50% 23%' }}
                 />

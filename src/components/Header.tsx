@@ -9,7 +9,7 @@ const NAV_ITEMS = [
 ];
 
 const Header = () => {
-  const [scrolled, setScrolled] = useState(false);
+  const [heroCleared, setHeroCleared] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('');
 
@@ -17,11 +17,19 @@ const Header = () => {
     let frameId: number | null = null;
     let refreshSectionOffsets = true;
     let mounted = true;
-    let previousScrolled = false;
+    let previousHeroCleared = false;
     let previousActiveSection = '';
+    let heroEnd = window.innerHeight;
+    let headerBarHeight = 0;
     let sectionOffsets: Array<{ id: string; top: number }> = [];
 
     const measureSections = () => {
+      const hero = document.getElementById('about');
+      const headerBar = document.querySelector<HTMLElement>('[data-header-bar]');
+
+      heroEnd = hero ? hero.offsetTop + hero.offsetHeight : window.innerHeight;
+      headerBarHeight = headerBar?.offsetHeight ?? (window.innerWidth >= 768 ? 80 : 64);
+
       sectionOffsets = NAV_ITEMS.flatMap(({ id }) => {
         const section = document.getElementById(id);
         return section ? [{ id, top: section.offsetTop }] : [];
@@ -29,12 +37,12 @@ const Header = () => {
     };
 
     const updateHeader = () => {
-      const scrollY = window.scrollY;
-      const nextScrolled = scrollY > 10;
+      const scrollY = Math.max(0, window.scrollY);
+      const nextHeroCleared = scrollY + headerBarHeight >= heroEnd - 0.5;
 
-      if (nextScrolled !== previousScrolled) {
-        previousScrolled = nextScrolled;
-        setScrolled(nextScrolled);
+      if (nextHeroCleared !== previousHeroCleared) {
+        previousHeroCleared = nextHeroCleared;
+        setHeroCleared(nextHeroCleared);
       }
 
       const marker = scrollY + window.innerHeight * 0.32;
@@ -96,7 +104,7 @@ const Header = () => {
     setMenuOpen(false);
   };
 
-  const solidHeader = scrolled || menuOpen;
+  const solidHeader = heroCleared || menuOpen;
 
   return (
     <header
@@ -106,7 +114,10 @@ const Header = () => {
           : 'border-transparent bg-transparent'
       }`}
     >
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6 sm:px-8 md:h-20">
+      <div
+        data-header-bar
+        className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6 sm:px-8 md:h-20"
+      >
         <button
           onClick={() => scrollTo('about')}
           className={`font-display text-[19px] font-semibold tracking-[-0.045em] transition-colors md:text-xl ${
