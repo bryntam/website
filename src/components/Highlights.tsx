@@ -18,6 +18,8 @@ const Highlights = () => {
             <img
               src={boxingImg}
               alt="Bryan Tam competing in a charity boxing event"
+              loading="lazy"
+              decoding="async"
               className="aspect-[16/11] h-full w-full object-cover object-[50%_68%] grayscale-[12%] contrast-[1.03]"
             />
           </div>

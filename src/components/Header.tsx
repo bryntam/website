@@ -14,29 +14,80 @@ const Header = () => {
   const [activeSection, setActiveSection] = useState('');
 
   useEffect(() => {
-    const updateHeader = () => {
-      setScrolled(window.scrollY > 10);
+    let frameId: number | null = null;
+    let refreshSectionOffsets = true;
+    let mounted = true;
+    let previousScrolled = false;
+    let previousActiveSection = '';
+    let sectionOffsets: Array<{ id: string; top: number }> = [];
 
-      const marker = window.scrollY + window.innerHeight * 0.32;
+    const measureSections = () => {
+      sectionOffsets = NAV_ITEMS.flatMap(({ id }) => {
+        const section = document.getElementById(id);
+        return section ? [{ id, top: section.offsetTop }] : [];
+      });
+    };
+
+    const updateHeader = () => {
+      const scrollY = window.scrollY;
+      const nextScrolled = scrollY > 10;
+
+      if (nextScrolled !== previousScrolled) {
+        previousScrolled = nextScrolled;
+        setScrolled(nextScrolled);
+      }
+
+      const marker = scrollY + window.innerHeight * 0.32;
       let currentSection = '';
 
-      NAV_ITEMS.forEach(({ id }) => {
-        const section = document.getElementById(id);
-        if (section && section.offsetTop <= marker) {
+      sectionOffsets.forEach(({ id, top }) => {
+        if (top <= marker) {
           currentSection = id;
         }
       });
 
-      setActiveSection(currentSection);
+      if (currentSection !== previousActiveSection) {
+        previousActiveSection = currentSection;
+        setActiveSection(currentSection);
+      }
     };
 
-    updateHeader();
-    window.addEventListener('scroll', updateHeader, { passive: true });
-    window.addEventListener('resize', updateHeader);
+    const scheduleUpdate = () => {
+      if (frameId !== null) return;
+
+      frameId = window.requestAnimationFrame(() => {
+        frameId = null;
+
+        if (refreshSectionOffsets) {
+          measureSections();
+          refreshSectionOffsets = false;
+        }
+
+        updateHeader();
+      });
+    };
+
+    const handleResize = () => {
+      refreshSectionOffsets = true;
+      scheduleUpdate();
+    };
+
+    scheduleUpdate();
+    window.addEventListener('scroll', scheduleUpdate, { passive: true });
+    window.addEventListener('resize', handleResize);
+
+    document.fonts?.ready.then(() => {
+      if (mounted) handleResize();
+    });
 
     return () => {
-      window.removeEventListener('scroll', updateHeader);
-      window.removeEventListener('resize', updateHeader);
+      mounted = false;
+      window.removeEventListener('scroll', scheduleUpdate);
+      window.removeEventListener('resize', handleResize);
+
+      if (frameId !== null) {
+        window.cancelAnimationFrame(frameId);
+      }
     };
   }, []);
 
@@ -49,9 +100,9 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed left-0 right-0 top-0 z-50 border-b transition-all duration-300 ${
+      className={`site-header fixed left-0 right-0 top-0 z-50 border-b ${
         solidHeader
-          ? 'border-[#d7d6d1]/80 bg-[#f4f3ef]/95 backdrop-blur-md'
+          ? 'site-header-solid border-[#d7d6d1]/80'
           : 'border-transparent bg-transparent'
       }`}
     >

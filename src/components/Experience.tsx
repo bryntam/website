@@ -69,6 +69,7 @@ const Experience = () => {
                   <img
                     src={role.logo}
                     alt={role.logoAlt}
+                    decoding="async"
                     className={role.logoClassName}
                   />
                 </div>
@@ -97,6 +98,7 @@ const Experience = () => {
                 <img
                   src={noveltyLogo}
                   alt="Novelty Cantonese Students' Association"
+                  decoding="async"
                   className="w-full max-w-[92px] mix-blend-multiply md:max-w-[125px]"
                 />
               </div>

@@ -27,6 +27,8 @@ const PhotoFrame = ({
     <img
       src={photo.src}
       alt={photo.alt}
+      loading="lazy"
+      decoding="async"
       className="h-full w-full object-cover transition duration-700 ease-out group-hover:scale-[1.015] group-hover:brightness-[0.96]"
     />
   </figure>

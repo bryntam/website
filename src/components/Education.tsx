@@ -18,6 +18,8 @@ const Education = () => {
             <img
               src={graduationImg}
               alt="Bryan Tam celebrating his graduation from the University of Toronto"
+              loading="lazy"
+              decoding="async"
               className="aspect-[5/4] h-full w-full object-cover object-[50%_48%]"
             />
           </div>

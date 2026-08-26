@@ -11,6 +11,8 @@ const Hero = () => {
         src="/hero-bg.jpg"
         alt=""
         aria-hidden="true"
+        decoding="async"
+        fetchPriority="high"
         className="absolute inset-0 h-full w-full object-cover object-[57%_center] md:object-center"
       />
 
@@ -31,6 +33,7 @@ const Hero = () => {
                 <img
                   src={photo}
                   alt="Bryan Tam"
+                  decoding="async"
                   className="h-full w-full scale-110 object-cover"
                   style={{ objectPosition: '50% 23%' }}
                 />

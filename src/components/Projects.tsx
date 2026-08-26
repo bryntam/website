@@ -39,6 +39,8 @@ const ProjectVisual = ({ project }: { project: Project }) => {
         <img
           src={splitBillsImg}
           alt="SplitBills product preview"
+          loading="lazy"
+          decoding="async"
           className="h-full w-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-[1.015]"
         />
       </div>
@@ -50,6 +52,8 @@ const ProjectVisual = ({ project }: { project: Project }) => {
       <img
         src={playMahjongImg}
         alt="playmahjong.app homepage"
+        loading="lazy"
+        decoding="async"
         className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.015]"
       />
     </div>

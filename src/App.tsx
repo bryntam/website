@@ -10,18 +10,29 @@ import Footer from './components/Footer';
 
 function App() {
   useEffect(() => {
+    const sections = document.querySelectorAll('.fade-section');
+    const skipSectionMotion = window.matchMedia(
+      '(max-width: 767px), (hover: none) and (pointer: coarse), (prefers-reduced-motion: reduce)'
+    ).matches;
+
+    if (skipSectionMotion) {
+      sections.forEach((section) => section.classList.add('visible'));
+      return;
+    }
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
           }
         });
       },
       { threshold: 0.05 }
     );
 
-    document.querySelectorAll('.fade-section').forEach((el) => {
+    sections.forEach((el) => {
       observer.observe(el);
     });
 
