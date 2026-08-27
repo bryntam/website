@@ -14,11 +14,12 @@
 
 @layer components {
   .hero-viewport {
-    min-height: var(--hero-height, 100svh);
+    min-height: 100vh;
+    min-height: 100lvh;
   }
 
   .hero-backdrop {
-    height: var(--hero-height, 100svh);
+    height: 100%;
   }
 
   .site-header {

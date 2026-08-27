@@ -1,63 +1,9 @@
-import { useLayoutEffect, useRef } from 'react';
 import photo from '../img/photo.webp';
 import { LinkedinIcon, MailIcon } from './icons';
 
 const Hero = () => {
-  const heroRef = useRef<HTMLElement>(null);
-
-  useLayoutEffect(() => {
-    const hero = heroRef.current;
-    if (!hero) return;
-
-    const mobileHeroQuery = window.matchMedia(
-      '(max-width: 767px), (hover: none) and (pointer: coarse)'
-    );
-    let previousWidth = window.innerWidth;
-    let frameId: number | null = null;
-
-    const lockHeroHeight = () => {
-      frameId = null;
-      hero.style.removeProperty('--hero-height');
-
-      if (mobileHeroQuery.matches) {
-        const initialHeight = Math.ceil(hero.getBoundingClientRect().height);
-        hero.style.setProperty('--hero-height', `${initialHeight}px`);
-      }
-    };
-
-    const handleResize = () => {
-      const nextWidth = window.innerWidth;
-
-      // Mobile browser chrome changes only the viewport height while scrolling.
-      // Keep the original hero crop unless the layout width actually changes.
-      if (Math.abs(nextWidth - previousWidth) < 2) return;
-
-      previousWidth = nextWidth;
-
-      if (frameId !== null) {
-        window.cancelAnimationFrame(frameId);
-      }
-
-      frameId = window.requestAnimationFrame(lockHeroHeight);
-    };
-
-    lockHeroHeight();
-    window.addEventListener('resize', handleResize);
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-
-      if (frameId !== null) {
-        window.cancelAnimationFrame(frameId);
-      }
-
-      hero.style.removeProperty('--hero-height');
-    };
-  }, []);
-
   return (
     <section
-      ref={heroRef}
       id="about"
       className="hero-viewport relative overflow-hidden bg-[#080a09] text-white"
     >
