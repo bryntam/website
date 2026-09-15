@@ -28,18 +28,12 @@ const AppPageLayout = ({ children, title, description }: AppPageLayoutProps) => 
   return (
     <div className="min-h-screen bg-[#f4f3ef] text-[#0b0d0c]">
       <header className="border-b border-[#d7d6d1]">
-        <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6 sm:px-8 md:h-20">
+        <div className="mx-auto flex h-16 max-w-6xl items-center px-6 sm:px-8 md:h-20">
           <a
             href="/"
             className="font-display text-[19px] font-semibold tracking-[-0.045em] transition-colors hover:text-stone-600 md:text-xl"
           >
             Bryan Tam.
-          </a>
-          <a
-            href={`mailto:${SUPPORT_EMAIL}`}
-            className="text-[11px] font-medium uppercase tracking-[0.16em] text-stone-500 transition-colors hover:text-stone-950"
-          >
-            Support
           </a>
         </div>
       </header>
