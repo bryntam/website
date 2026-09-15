@@ -1,32 +1,81 @@
 import { useEffect, type ReactNode } from 'react';
 
-const SUPPORT_EMAIL = 'bryancktam@gmail.com';
+export const SUPPORT_EMAIL = 'bryancktam@gmail.com';
 
 type AppPageLayoutProps = {
   children: ReactNode;
   title: string;
   description: string;
+  canonical?: string;
 };
 
-const AppPageLayout = ({ children, title, description }: AppPageLayoutProps) => {
+export const AppPageLayout = ({ children, title, description, canonical }: AppPageLayoutProps) => {
   useEffect(() => {
     const previousTitle = document.title;
-    const descriptionMeta = document.querySelector<HTMLMetaElement>('meta[name="description"]');
+    let descriptionMeta = document.querySelector<HTMLMetaElement>('meta[name="description"]');
+    let robotsMeta = document.querySelector<HTMLMetaElement>('meta[name="robots"]');
+    let canonicalLink = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
+    const createdDescription = !descriptionMeta;
+    const createdRobots = !robotsMeta;
+    const createdCanonical = Boolean(canonical && !canonicalLink);
+
+    if (!descriptionMeta) {
+      descriptionMeta = document.createElement('meta');
+      descriptionMeta.name = 'description';
+      document.head.append(descriptionMeta);
+    }
+
+    if (!robotsMeta) {
+      robotsMeta = document.createElement('meta');
+      robotsMeta.name = 'robots';
+      document.head.append(robotsMeta);
+    }
+
+    if (canonical && !canonicalLink) {
+      canonicalLink = document.createElement('link');
+      canonicalLink.rel = 'canonical';
+      document.head.append(canonicalLink);
+    }
+
     const previousDescription = descriptionMeta?.content;
+    const previousRobots = robotsMeta?.content;
+    const previousCanonical = canonicalLink?.href;
 
     document.title = title;
     descriptionMeta?.setAttribute('content', description);
+    robotsMeta?.setAttribute('content', 'noindex, follow');
+    if (canonical) canonicalLink?.setAttribute('href', canonical);
 
     return () => {
       document.title = previousTitle;
-      if (descriptionMeta && previousDescription) {
+      if (createdDescription) {
+        descriptionMeta?.remove();
+      } else if (descriptionMeta && previousDescription) {
         descriptionMeta.setAttribute('content', previousDescription);
       }
+
+      if (createdRobots) {
+        robotsMeta?.remove();
+      } else if (robotsMeta && previousRobots) {
+        robotsMeta.setAttribute('content', previousRobots);
+      }
+
+      if (createdCanonical) {
+        canonicalLink?.remove();
+      } else if (canonicalLink && previousCanonical) {
+        canonicalLink.setAttribute('href', previousCanonical);
+      }
     };
-  }, [description, title]);
+  }, [canonical, description, title]);
 
   return (
     <div className="min-h-screen bg-[#f4f3ef] text-[#0b0d0c]">
+      <a
+        href="#main-content"
+        className="fixed left-4 top-3 z-[60] -translate-y-20 rounded-full bg-[#0b0d0c] px-4 py-2 text-sm font-medium text-white transition-transform focus:translate-y-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-stone-500 focus-visible:ring-offset-2"
+      >
+        Skip to content
+      </a>
       <header className="border-b border-[#d7d6d1]">
         <div className="mx-auto flex h-16 max-w-6xl items-center px-6 sm:px-8 md:h-20">
           <a
@@ -56,8 +105,9 @@ export const AppsIndex = () => (
   <AppPageLayout
     title="Apps — Bryan Tam"
     description="Independent apps designed and built by Bryan Tam."
+    canonical="https://bryantam.com/apps/"
   >
-    <main className="mx-auto max-w-6xl px-6 pb-24 pt-16 sm:px-8 md:pb-32 md:pt-24">
+    <main id="main-content" className="mx-auto max-w-6xl px-6 pb-24 pt-16 sm:px-8 md:pb-32 md:pt-24">
       <h1 className="font-display text-5xl font-semibold tracking-[-0.055em] sm:text-6xl md:text-7xl">
         Apps
       </h1>
@@ -83,23 +133,33 @@ export const AppsIndex = () => (
           </div>
         </a>
 
-        <div className="flex min-h-72 flex-col justify-between rounded-[1.75rem] border border-[#d7d6d1] p-7 sm:p-9">
-          <span className="w-fit rounded-full border border-[#d7d6d1] px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.15em] text-stone-400">
-            Coming soon
-          </span>
-          <div>
-            <h2 className="font-display text-4xl font-semibold tracking-[-0.05em] text-stone-400">
-              Bridge with Friends
-            </h2>
-            <p className="mt-3 leading-7 text-stone-400">More details to come.</p>
+        <a
+          href="/apps/bridge-with-friends"
+          className="group flex min-h-72 flex-col justify-between rounded-[1.75rem] border border-[#d4cfe0] bg-[#ebe8f2] p-7 transition-colors hover:bg-white sm:p-9"
+        >
+          <div className="flex items-start justify-between gap-5">
+            <span className="w-fit rounded-full border border-[#c9c2d8] px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.15em] text-[#716886]">
+              TestFlight beta
+            </span>
+            <span aria-hidden="true" className="text-xl text-[#8b82a0] transition-transform group-hover:translate-x-1">
+              →
+            </span>
           </div>
-        </div>
+          <div>
+            <h2 className="font-display text-4xl font-semibold tracking-[-0.05em]">
+              Bridge Circle
+            </h2>
+            <p className="mt-3 max-w-md leading-7 text-stone-600">
+              Gather four friends around a private table or practice locally with bots.
+            </p>
+          </div>
+        </a>
       </div>
     </main>
   </AppPageLayout>
 );
 
-const LegalSection = ({ id, title, children }: { id: string; title: string; children: ReactNode }) => (
+export const LegalSection = ({ id, title, children }: { id: string; title: string; children: ReactNode }) => (
   <section id={id} className="scroll-mt-8 border-t border-[#d7d6d1] py-10 first:border-t-0 first:pt-0 md:py-12">
     <h2 className="font-display text-2xl font-semibold tracking-[-0.04em] sm:text-3xl">{title}</h2>
     <div className="mt-5 space-y-4 text-[15px] leading-7 text-stone-600 sm:text-base sm:leading-8">
@@ -112,8 +172,9 @@ export const CartScanPage = () => (
   <AppPageLayout
     title="Cart Scan — Privacy & Support"
     description="Privacy policy, support information, and important notices for Cart Scan."
+    canonical="https://bryantam.com/apps/cart-scan/"
   >
-    <main>
+    <main id="main-content">
       <div className="mx-auto max-w-6xl px-6 pb-14 pt-14 sm:px-8 md:pb-20 md:pt-20">
         <a
           href="/apps"
@@ -218,7 +279,7 @@ export const CartScanPage = () => (
 
 export const NotFoundPage = () => (
   <AppPageLayout title="Page not found — Bryan Tam" description="The requested page could not be found.">
-    <main className="mx-auto flex min-h-[70vh] max-w-6xl items-center px-6 py-20 sm:px-8">
+    <main id="main-content" className="mx-auto flex min-h-[70vh] max-w-6xl items-center px-6 py-20 sm:px-8">
       <div>
         <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-stone-500">404</p>
         <h1 className="mt-4 font-display text-5xl font-semibold tracking-[-0.055em]">Page not found.</h1>

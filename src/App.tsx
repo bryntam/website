@@ -8,6 +8,7 @@ import Highlights from './components/Highlights';
 import Photography from './components/Photography';
 import Footer from './components/Footer';
 import { AppsIndex, CartScanPage, NotFoundPage } from './components/AppPages';
+import { BridgeCirclePage } from './components/BridgePages';
 
 function Portfolio() {
   useEffect(() => {
@@ -65,6 +66,18 @@ function App() {
 
   if (pathname === '/apps/cart-scan') {
     return <CartScanPage />;
+  }
+
+  if (pathname === '/apps/bridge-with-friends') {
+    return <BridgeCirclePage view="combined" />;
+  }
+
+  if (pathname === '/apps/bridge-with-friends/privacy') {
+    return <BridgeCirclePage view="privacy" />;
+  }
+
+  if (pathname === '/apps/bridge-with-friends/support') {
+    return <BridgeCirclePage view="support" />;
   }
 
   if (pathname !== '/') {
