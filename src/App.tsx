@@ -7,8 +7,9 @@ import Education from './components/Education';
 import Highlights from './components/Highlights';
 import Photography from './components/Photography';
 import Footer from './components/Footer';
+import { AppsIndex, CartScanPage, NotFoundPage } from './components/AppPages';
 
-function App() {
+function Portfolio() {
   useEffect(() => {
     const sections = document.querySelectorAll('.fade-section');
     const skipSectionMotion = window.matchMedia(
@@ -53,6 +54,24 @@ function App() {
       <Footer />
     </div>
   );
+}
+
+function App() {
+  const pathname = window.location.pathname.replace(/\/+$/, '') || '/';
+
+  if (pathname === '/apps') {
+    return <AppsIndex />;
+  }
+
+  if (pathname === '/apps/cart-scan') {
+    return <CartScanPage />;
+  }
+
+  if (pathname !== '/') {
+    return <NotFoundPage />;
+  }
+
+  return <Portfolio />;
 }
 
 export default App;
