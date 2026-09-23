@@ -1,3 +1,4 @@
+import fantasyRiftImg from '../img/fantasyrift.png';
 import splitBillsImg from '../img/splitbills.jpeg';
 import playMahjongImg from '../img/playmahjong-live.png';
 import { ArrowUpRightIcon } from './icons';
@@ -8,12 +9,21 @@ interface Project {
   description: string;
   stack: string;
   link: string;
-  visual: 'splitbills' | 'mahjong';
+  visual: 'fantasyrift' | 'splitbills' | 'mahjong';
 }
 
 const projects: Project[] = [
   {
     num: '01',
+    name: 'FantasyRift',
+    description:
+      'A free Riftbound fantasy game where players build a team of five Legends and compete on tournament leaderboards.',
+    stack: 'Next.js · TypeScript · Supabase',
+    link: 'https://www.fantasyrift.com',
+    visual: 'fantasyrift',
+  },
+  {
+    num: '02',
     name: 'SplitBills',
     description:
       'An iOS app that makes shared expenses easier to track, settle, and understand.',
@@ -22,7 +32,7 @@ const projects: Project[] = [
     visual: 'splitbills',
   },
   {
-    num: '02',
+    num: '03',
     name: 'playmahjong.app',
     description:
       'A modern way to learn and play mahjong online, designed to get a table started in seconds.',
@@ -33,6 +43,20 @@ const projects: Project[] = [
 ];
 
 const ProjectVisual = ({ project }: { project: Project }) => {
+  if (project.visual === 'fantasyrift') {
+    return (
+      <div className="aspect-[16/10] overflow-hidden bg-[#f4f0e8]">
+        <img
+          src={fantasyRiftImg}
+          alt="FantasyRift homepage with fantasy team building and a Riftbound tournament overview"
+          loading="lazy"
+          decoding="async"
+          className="h-full w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.015]"
+        />
+      </div>
+    );
+  }
+
   if (project.visual === 'splitbills') {
     return (
       <div className="aspect-[16/10] overflow-hidden bg-[#ebeaf0]">
