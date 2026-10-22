@@ -31,11 +31,7 @@ const Education = () => {
                 <span className="tabular-nums">2021—2025</span>
               </div>
 
-              <h3 className="mt-12 max-w-md font-display text-[clamp(2.4rem,4.5vw,4rem)] font-medium leading-[0.95] tracking-[-0.055em] text-[#0b0d0c] lg:mt-20">
-                Computer science meets business.
-              </h3>
-
-              <p className="mt-6 max-w-md text-base leading-relaxed text-stone-600">
+              <p className="mt-10 max-w-md font-display text-[clamp(1.5rem,2.2vw,2rem)] font-medium leading-[1.25] tracking-[-0.035em] text-[#0b0d0c] lg:mt-12">
                 I took third year level computer science courses alongside my management studies, which helped me approach problems from both the technical and business sides.
               </p>
             </div>

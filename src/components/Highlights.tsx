@@ -31,11 +31,7 @@ const Highlights = () => {
                 <span className="tabular-nums">2026</span>
               </div>
 
-              <h3 className="mt-12 max-w-md font-display text-[clamp(2.4rem,4.5vw,4rem)] font-medium leading-[0.95] tracking-[-0.055em] lg:mt-20">
-                Stepped into the unknown.
-              </h3>
-
-              <p className="mt-6 max-w-md text-base leading-relaxed text-white/60">
+              <p className="mt-10 max-w-md font-display text-[clamp(1.5rem,2.2vw,2rem)] font-medium leading-[1.25] tracking-[-0.035em] lg:mt-12">
                 I started as a complete beginner, trained for eight months, and competed in a charity boxing event that raised money for a great cause.
               </p>
             </div>
